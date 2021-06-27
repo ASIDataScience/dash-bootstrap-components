@@ -39,3 +39,5 @@ NAMESPACE
 deps/
 src/*.jl
 Project.toml
+!examples/**/Project.toml
+Manifest.toml

@@ -1,0 +1,11 @@
+name = "IrisKMeans"
+version = "0.1.0"
+
+[deps]
+Clustering = "aaaa29a8-35af-508c-8bc3-b662a17a0fe5"
+Dash = "1b08a953-4be3-4667-9a23-3db579824955"
+DashBootstrapComponents = "1b08a953-4be3-4667-9a23-fa6d05876a1e"
+DashCoreComponents = "1b08a953-4be3-4667-9a23-9da06441d987"
+DashHtmlComponents = "1b08a953-4be3-4667-9a23-24100242a84a"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+RDatasets = "ce6b1742-4840-55fa-b093-852dadbb1d8b"

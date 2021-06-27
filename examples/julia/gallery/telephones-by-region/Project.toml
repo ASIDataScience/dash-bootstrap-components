@@ -1,0 +1,11 @@
+name = "TelephonesByRegion"
+version = "0.1.0"
+
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+Dash = "1b08a953-4be3-4667-9a23-3db579824955"
+DashBootstrapComponents = "1b08a953-4be3-4667-9a23-fa6d05876a1e"
+DashCoreComponents = "1b08a953-4be3-4667-9a23-9da06441d987"
+DashHtmlComponents = "1b08a953-4be3-4667-9a23-24100242a84a"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"

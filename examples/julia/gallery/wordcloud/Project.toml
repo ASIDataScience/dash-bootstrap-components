@@ -1,0 +1,13 @@
+name = "Wordcloud"
+version = "0.1.0"
+
+[deps]
+Base64 = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
+Dash = "1b08a953-4be3-4667-9a23-3db579824955"
+DashBootstrapComponents = "1b08a953-4be3-4667-9a23-fa6d05876a1e"
+DashCoreComponents = "1b08a953-4be3-4667-9a23-9da06441d987"
+DashHtmlComponents = "1b08a953-4be3-4667-9a23-24100242a84a"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+LRUCache = "8ac3fa9e-de4c-5943-b1dc-09c6b5f20637"
+Memoize = "c03570c3-d221-55d1-a50c-7939bbd78826"
+WordCloud = "6385f0a0-cb03-45b6-9089-4e0acc74b26b"
