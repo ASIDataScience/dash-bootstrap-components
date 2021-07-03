@@ -28,5 +28,6 @@ app$callback(
     if (n > 0) {
       return(TRUE)
     }
+    return(dashNoUpdate())
   }
 )

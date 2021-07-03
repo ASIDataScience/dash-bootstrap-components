@@ -22,5 +22,8 @@ callback!(
     Output("simple-toast", "is_open"),
     Input("simple-toast-toggle", "n_clicks"),
 ) do n
-    return true
+    if n > 0
+        return true
+    end
+    return no_update()
 end;

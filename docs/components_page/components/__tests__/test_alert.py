@@ -27,12 +27,12 @@ def check_dismiss_callbacks(runner):
     runner.find_element("#alert-toggle-fade").click()
     wait.until(
         lambda: runner.find_elements("#alert-fade") == [],
-        timeout=2,
+        timeout=4,
     )
 
     assert runner.find_element("#alert-no-fade") != []
     runner.find_element("#alert-toggle-no-fade").click()
     wait.until(
         lambda: runner.find_elements("#alert-no-fade") == [],
-        timeout=2,
+        timeout=4,
     )

@@ -23,7 +23,7 @@ app$run_server(port = {port})
 """
 
 JL_WRAPPER = """
-using Dash, DashBootstrapComponents
+using Dash, DashBootstrapComponents, DashHtmlComponents
 
 app = dash(external_stylesheets=[dbc_themes.BOOTSTRAP]);
 

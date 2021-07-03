@@ -30,7 +30,7 @@ app$callback(
   list(input("dropdown-button", "n_clicks")),
   function(n) {
     if (n > 0) {
-      return(sprintf("Clicked %d times.", n))
+      return(sprintf("Button clicked %d times.", n))
     }
     return(sprintf("Button not clicked yet"))
   }

@@ -64,12 +64,16 @@ app$callback(
     input("switches-input", "value")
   ),
   function(radio_items_value, checklist_value, switches_value) {
-    template <- "Radio button # %d,  %d checklist item(s) and %d switch(es) selected."
+
     n_checkboxes <- length(checklist_value)
     n_switches <- length(switches_value)
+    s <- if (n_checkboxes != 1)  "s" else ""
+    es <- if (n_switches != 1)  "es" else ""
+
+    template <- "Radio button %d,  %d checklist item%s and %d switch%s selected."
 
     return(
-      sprintf(template, radio_items_value, n_checkboxes, n_switches)
+      sprintf(template, radio_items_value, n_checkboxes, s, n_switches, es)
     )
   }
 )

@@ -13,13 +13,24 @@ email_input = html_div([
 
 callback!(
     app,
-    Output("email-input", "valid"),
     Output("email-input", "invalid"),
     Input("email-input", "value"),
 ) do text
     if length(text) > 0
         is_gmail = endswith(text, "@gmail.com")
-        return (is_gmail, !is_gmail)
+        return !is_gmail
     end
-    return (false, false)
+    return false
+end;
+
+callback!(
+    app,
+    Output("email-input", "valid"),
+    Input("email-input", "value"),
+) do text
+    if length(text) > 0
+        is_gmail = endswith(text, "@gmail.com")
+        return is_gmail
+    end
+    return false
 end;
