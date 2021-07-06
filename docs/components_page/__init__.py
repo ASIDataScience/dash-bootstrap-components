@@ -64,6 +64,7 @@ def register_apps():
         "button": {"markdown_path": COMPONENTS / "button.md"},
         "button_group": {"markdown_path": COMPONENTS / "button_group.md"},
         "card": {"markdown_path": COMPONENTS / "card.md"},
+        "carousel": {"markdown_path": COMPONENTS / "carousel.md"},
         "collapse": {"markdown_path": COMPONENTS / "collapse.md"},
         "dropdown_menu": {"markdown_path": COMPONENTS / "dropdown.md"},
         "fade": {"markdown_path": COMPONENTS / "fade.md"},

@@ -12,6 +12,7 @@ export {default as CardHeader} from './components/card/CardHeader';
 export {default as CardImg} from './components/card/CardImg';
 export {default as CardImgOverlay} from './components/card/CardImgOverlay';
 export {default as CardLink} from './components/card/CardLink';
+export {default as Carousel} from './components/Carousel'
 export {default as Checkbox} from './components/input/Checkbox';
 export {default as Checklist} from './components/input/Checklist';
 export {default as Col} from './components/layout/Col';
@@ -66,3 +67,4 @@ export {default as Table} from './components/Table';
 export {default as Textarea} from './components/input/Textarea';
 export {default as Toast} from './components/Toast';
 export {default as Tooltip} from './components/Tooltip';
+
