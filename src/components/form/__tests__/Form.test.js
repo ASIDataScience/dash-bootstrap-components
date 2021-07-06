@@ -17,7 +17,7 @@ describe('Form', () => {
 
   test('applies form-inline class with "inline" prop', () => {
     const {
-      container: {firstChild: form}
+      container: {firstChild: form},
     } = render(<Form inline />);
 
     expect(form).toHaveClass('form-inline');

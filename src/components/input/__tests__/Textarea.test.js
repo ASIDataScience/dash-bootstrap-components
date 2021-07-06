@@ -14,7 +14,7 @@ describe('Textarea', () => {
 
   test('has no value by default', () => {
     const {
-      container: {firstChild: textarea}
+      container: {firstChild: textarea},
     } = render(<Textarea />);
 
     expect(textarea).not.toHaveValue();
@@ -23,7 +23,7 @@ describe('Textarea', () => {
   test('passes value on to the underlying HTML textarea', () => {
     const {
       container: {firstChild: textarea},
-      rerender
+      rerender,
     } = render(<Textarea value="some-textarea-value" />);
 
     expect(textarea).toHaveValue('some-textarea-value');
@@ -34,25 +34,25 @@ describe('Textarea', () => {
 
   test('passes HTML attributes on to underlying textarea', () => {
     const {
-      container: {firstChild: textarea}
+      container: {firstChild: textarea},
     } = render(
       <Textarea
-        accessKey="k"
+        accesskey="k"
         cols="33"
         dir="ltr"
         disabled
         draggable
         form="form-id"
         lang="en-GB"
-        maxLength="20"
-        minLength="2"
+        maxlength="20"
+        minlength="2"
         name="test-name"
         placeholder="test-placeholder"
-        readOnly
+        readonly
         required
         rows="6"
-        spellCheck
-        tabIndex="3"
+        spellcheck
+        tabindex="3"
         title="test-title"
         wrap="hard"
       />
@@ -95,11 +95,11 @@ describe('Textarea', () => {
 
     test('tracks changes with "value" prop', () => {
       fireEvent.change(textarea, {
-        target: {value: 'some-textarea-value'}
+        target: {value: 'some-textarea-value'},
       });
       expect(mockSetProps.mock.calls).toHaveLength(1);
       expect(mockSetProps.mock.calls[0][0]).toEqual({
-        value: 'some-textarea-value'
+        value: 'some-textarea-value',
       });
       expect(textarea).toHaveValue('some-textarea-value');
     });
@@ -134,7 +134,7 @@ describe('Textarea', () => {
       fireEvent.keyPress(textarea, {
         key: 'Enter',
         code: 13,
-        charCode: 13
+        charCode: 13,
       });
       const after = Date.now();
 
@@ -167,7 +167,7 @@ describe('Textarea', () => {
 
       test("don't call setProps on change if debounce is true", () => {
         fireEvent.change(textarea, {
-          target: {value: 'some-textarea-value'}
+          target: {value: 'some-textarea-value'},
         });
         expect(mockSetProps.mock.calls).toHaveLength(0);
         expect(textarea).toHaveValue('some-textarea-value');
@@ -192,15 +192,14 @@ describe('Textarea', () => {
         fireEvent.keyPress(textarea, {
           key: 'Enter',
           code: 13,
-          charCode: 13
+          charCode: 13,
         });
         const after = Date.now();
 
         expect(mockSetProps.mock.calls).toHaveLength(1);
 
-        const [
-          [{n_submit, n_submit_timestamp, value}]
-        ] = mockSetProps.mock.calls;
+        const [[{n_submit, n_submit_timestamp, value}]] =
+          mockSetProps.mock.calls;
         expect(n_submit).toEqual(1);
         expect(n_submit_timestamp).toBeGreaterThanOrEqual(before);
         expect(n_submit_timestamp).toBeLessThanOrEqual(after);

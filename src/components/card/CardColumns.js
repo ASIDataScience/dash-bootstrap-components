@@ -6,13 +6,14 @@ import {CardColumns as RSCardColumns} from 'reactstrap';
 /**
  * Display a series of cards in vertical columns using a masonry style layout.
  */
-const CardColumns = props => {
-  const {children, loading_state, ...otherProps} = props;
+const CardColumns = (props) => {
+  const {children, loading_state, className, class_name, ...otherProps} = props;
   return (
     <RSCardColumns
       data-dash-is-loading={
         (loading_state && loading_state.is_loading) || undefined
       }
+      className={class_name || className}
       {...omit(['setProps'], otherProps)}
     >
       {children}
@@ -77,8 +78,8 @@ CardColumns.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
-  })
+    component_name: PropTypes.string,
+  }),
 };
 
 export default CardColumns;

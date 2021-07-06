@@ -23,9 +23,7 @@ describe('Collapse', () => {
 
     // toggle is_open, check for "collapsing" class
     collapse.rerender(<Collapse is_open />);
-    expect(collapse.container.querySelector('div.collapsing')).not.toBe(
-      null
-    );
+    expect(collapse.container.querySelector('div.collapsing')).not.toBe(null);
     jest.runAllTimers();
 
     expect(collapse.container.querySelector('div.collapse.show')).not.toBe(

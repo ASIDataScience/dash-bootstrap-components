@@ -12,7 +12,7 @@ describe('InputGroupAddon', () => {
 
   test('renders its content', () => {
     const {
-      container: {firstChild: inputGroupText}
+      container: {firstChild: inputGroupText},
     } = render(<InputGroupText>Addon</InputGroupText>);
 
     expect(inputGroupText).toHaveTextContent('Addon');

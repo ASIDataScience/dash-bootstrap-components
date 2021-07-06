@@ -13,7 +13,7 @@ jest.mock('popper.js', () => {
     constructor() {
       return {
         destroy: () => {},
-        scheduleUpdate: () => {}
+        scheduleUpdate: () => {},
       };
     }
   };
@@ -134,8 +134,8 @@ describe('DropdownMenuItem', () => {
       'show'
     );
     userEvent.click(dropdownMenu.getByText('Clickable'));
-    expect(
-      dropdownMenu.container.querySelector('.dropdown-menu')
-    ).toHaveClass('show');
+    expect(dropdownMenu.container.querySelector('.dropdown-menu')).toHaveClass(
+      'show'
+    );
   });
 });

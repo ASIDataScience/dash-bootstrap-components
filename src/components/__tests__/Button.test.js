@@ -18,13 +18,13 @@ describe('Button', () => {
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: buttonPrimary}
+      container: {firstChild: buttonPrimary},
     } = render(<Button color="primary" />);
     const {
-      container: {firstChild: buttonSuccess}
+      container: {firstChild: buttonSuccess},
     } = render(<Button color="success" />);
     const {
-      container: {firstChild: buttonDark}
+      container: {firstChild: buttonDark},
     } = render(<Button color="dark" />);
 
     expect(buttonPrimary).toHaveClass('btn-primary');
@@ -34,7 +34,7 @@ describe('Button', () => {
 
   test('applies outline styles with "outline" prop', () => {
     const {
-      container: {firstChild: button}
+      container: {firstChild: button},
     } = render(<Button color="primary" outline />);
 
     expect(button).toHaveClass('btn-outline-primary');
@@ -42,7 +42,7 @@ describe('Button', () => {
 
   test('applies outline styles with "outline" prop', () => {
     const {
-      container: {firstChild: button}
+      container: {firstChild: button},
     } = render(<Button color="primary" outline />);
 
     expect(button).toHaveClass('btn-outline-primary');
@@ -51,10 +51,10 @@ describe('Button', () => {
   test('applies additional CSS classes when props are set', () => {
     // active and disabled buttons
     const {
-      container: {firstChild: buttonActive}
+      container: {firstChild: buttonActive},
     } = render(<Button active />);
     const {
-      container: {firstChild: buttonDisabled}
+      container: {firstChild: buttonDisabled},
     } = render(<Button disabled />);
 
     expect(buttonActive).toHaveClass('active');
@@ -62,10 +62,10 @@ describe('Button', () => {
 
     // button sizes
     const {
-      container: {firstChild: buttonSm}
+      container: {firstChild: buttonSm},
     } = render(<Button size="sm" />);
     const {
-      container: {firstChild: buttonLg}
+      container: {firstChild: buttonLg},
     } = render(<Button size="lg" />);
 
     expect(buttonSm).toHaveClass('btn-sm');
@@ -73,7 +73,7 @@ describe('Button', () => {
 
     // block button
     const {
-      container: {firstChild: buttonBlock}
+      container: {firstChild: buttonBlock},
     } = render(<Button block />);
 
     expect(buttonBlock).toHaveClass('btn-block');

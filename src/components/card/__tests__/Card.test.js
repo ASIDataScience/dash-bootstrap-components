@@ -17,13 +17,13 @@ describe('Card', () => {
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: cardPrimary}
+      container: {firstChild: cardPrimary},
     } = render(<Card color="primary" />);
     const {
-      container: {firstChild: cardSuccess}
+      container: {firstChild: cardSuccess},
     } = render(<Card color="success" />);
     const {
-      container: {firstChild: cardDark}
+      container: {firstChild: cardDark},
     } = render(<Card color="dark" />);
 
     expect(cardPrimary).toHaveClass('bg-primary');
@@ -33,13 +33,13 @@ describe('Card', () => {
 
   test('applies outline styles with "outline" prop', () => {
     const {
-      container: {firstChild: cardPrimary}
+      container: {firstChild: cardPrimary},
     } = render(<Card color="primary" outline />);
     const {
-      container: {firstChild: cardSuccess}
+      container: {firstChild: cardSuccess},
     } = render(<Card color="success" outline />);
     const {
-      container: {firstChild: cardDark}
+      container: {firstChild: cardDark},
     } = render(<Card color="dark" outline />);
 
     expect(cardPrimary).toHaveClass('border-primary');
@@ -49,7 +49,7 @@ describe('Card', () => {
 
   test('applies card-body class with "body" prop', () => {
     const {
-      container: {firstChild: cardBody}
+      container: {firstChild: cardBody},
     } = render(<Card body />);
 
     expect(cardBody).toHaveClass('card-body');
@@ -57,7 +57,7 @@ describe('Card', () => {
 
   test('applies text-white class with "inverse" prop', () => {
     const {
-      container: {firstChild: cardInverse}
+      container: {firstChild: cardInverse},
     } = render(<Card inverse />);
 
     expect(cardInverse).toHaveClass('text-white');

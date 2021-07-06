@@ -12,7 +12,7 @@ describe('Label', () => {
 
   test('applies layout classes correctly', () => {
     const {
-      container: {firstChild: label}
+      container: {firstChild: label},
     } = render(<Label md={{size: 6, order: 2, offset: 3}} align="end" />);
 
     expect(label).toHaveClass(
@@ -22,10 +22,10 @@ describe('Label', () => {
 
   test('applies CSS size classes', () => {
     const {
-      container: {firstChild: labelSm}
+      container: {firstChild: labelSm},
     } = render(<Label size="sm" />);
     const {
-      container: {firstChild: labelLg}
+      container: {firstChild: labelLg},
     } = render(<Label size="lg" />);
 
     expect(labelSm).toHaveClass('col-form-label-sm');
@@ -34,13 +34,13 @@ describe('Label', () => {
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: labelPrimary}
+      container: {firstChild: labelPrimary},
     } = render(<Label color="primary" />);
     const {
-      container: {firstChild: labelSuccess}
+      container: {firstChild: labelSuccess},
     } = render(<Label color="success" />);
     const {
-      container: {firstChild: labelDark}
+      container: {firstChild: labelDark},
     } = render(<Label color="dark" />);
 
     expect(labelPrimary).toHaveClass('text-primary');
@@ -50,10 +50,9 @@ describe('Label', () => {
 
   test('applies custom color with "color" prop', () => {
     const {
-      container: {firstChild: button}
+      container: {firstChild: button},
     } = render(<Label color="#FA7268" />);
 
     expect(button).toHaveStyle('color: #FA7268;');
   });
-
 });

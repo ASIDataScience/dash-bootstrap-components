@@ -26,10 +26,10 @@ describe('Table', () => {
   test('applies additional CSS classes when props are set', () => {
     // bordered tables
     const {
-      container: {firstChild: tableBordered}
+      container: {firstChild: tableBordered},
     } = render(<Table bordered />);
     const {
-      container: {firstChild: tableBorderless}
+      container: {firstChild: tableBorderless},
     } = render(<Table borderless />);
 
     expect(tableBordered).toHaveClass('table-bordered');
@@ -37,10 +37,10 @@ describe('Table', () => {
 
     // table sizes
     const {
-      container: {firstChild: tableSm}
+      container: {firstChild: tableSm},
     } = render(<Table size="sm" />);
     const {
-      container: {firstChild: tableLg}
+      container: {firstChild: tableLg},
     } = render(<Table size="lg" />);
 
     expect(tableSm).toHaveClass('table-sm');
@@ -48,26 +48,26 @@ describe('Table', () => {
 
     // striped table
     const {
-      container: {firstChild: tableStriped}
+      container: {firstChild: tableStriped},
     } = render(<Table striped />);
     expect(tableStriped).toHaveClass('table-striped');
 
     // dark table
     const {
-      container: {firstChild: tableDark}
+      container: {firstChild: tableDark},
     } = render(<Table dark />);
     expect(tableDark).toHaveClass('table-dark');
 
     // table with hover animations
     const {
-      container: {firstChild: tableHover}
+      container: {firstChild: tableHover},
     } = render(<Table hover />);
     expect(tableHover).toHaveClass('table-hover');
 
     // responsive table
     const {
       container: {firstChild: tableResponsive},
-      rerender
+      rerender,
     } = render(<Table responsive />);
     expect(tableResponsive).toHaveClass('table-responsive');
 

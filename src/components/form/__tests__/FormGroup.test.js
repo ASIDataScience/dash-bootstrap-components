@@ -17,7 +17,7 @@ describe('FormGroup', () => {
 
   test('applies row class with "row" prop', () => {
     const {
-      container: {firstChild: form}
+      container: {firstChild: form},
     } = render(<FormGroup row />);
 
     expect(form).toHaveClass('row');

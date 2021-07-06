@@ -19,7 +19,7 @@ describe('Input', () => {
   test('passes value on to the underlying HTML input', () => {
     const {
       container: {firstChild: input},
-      rerender
+      rerender,
     } = render(<Input value="some-input-value" />);
 
     expect(input).toHaveValue('some-input-value');
@@ -29,22 +29,24 @@ describe('Input', () => {
   });
 
   test('passes HTML attributes on to underlying input', () => {
-    const {container: {firstChild: input}} = render(
+    const {
+      container: {firstChild: input},
+    } = render(
       <Input
-        autoComplete="username"
+        autocomplete="username"
         disabled
-        inputMode="verbatim"
+        inputmode="verbatim"
         list="datalist-id"
         max={10}
-        maxLength="20"
+        maxlength="20"
         min={1}
-        minLength="2"
+        minlength="2"
         name="test-name"
         pattern="test-pattern"
         placeholder="test-placeholder"
         size="42"
         step={2}
-        tabIndex="3"
+        tabindex="3"
         type="text"
       />
     );
@@ -85,11 +87,11 @@ describe('Input', () => {
 
     test('tracks changes with "value" prop', () => {
       fireEvent.change(inputElement, {
-        target: {value: 'some-input-value'}
+        target: {value: 'some-input-value'},
       });
       expect(mockSetProps.mock.calls).toHaveLength(1);
       expect(mockSetProps.mock.calls[0][0]).toEqual({
-        value: 'some-input-value'
+        value: 'some-input-value',
       });
       expect(inputElement).toHaveValue('some-input-value');
     });
@@ -150,7 +152,7 @@ describe('Input', () => {
 
     test("don't call setProps on change if debounce is true", () => {
       fireEvent.change(inputElement, {
-        target: {value: 'some-input-value'}
+        target: {value: 'some-input-value'},
       });
       expect(mockSetProps.mock.calls).toHaveLength(0);
       expect(inputElement).toHaveValue('some-input-value');
@@ -175,7 +177,7 @@ describe('Input', () => {
       fireEvent.keyPress(inputElement, {
         key: 'Enter',
         code: 13,
-        charCode: 13
+        charCode: 13,
       });
       const after = Date.now();
 
@@ -194,28 +196,30 @@ describe('Input', () => {
 
     beforeEach(() => {
       mockSetProps = jest.fn();
-      const {container} = render(<Input setProps={mockSetProps} type="number" />);
+      const {container} = render(
+        <Input setProps={mockSetProps} type="number" />
+      );
       inputElement = container.firstChild;
     });
 
     test('tracks changes with "value" prop', () => {
       fireEvent.change(inputElement, {
-        target: {value: 12}
+        target: {value: 12},
       });
       expect(inputElement).toHaveValue(12);
 
       fireEvent.change(inputElement, {
-        target: {value: -42}
+        target: {value: -42},
       });
       expect(inputElement).toHaveValue(-42);
 
       fireEvent.change(inputElement, {
-        target: {value: 1.01}
+        target: {value: 1.01},
       });
       expect(inputElement).toHaveValue(1.01);
 
       fireEvent.change(inputElement, {
-        target: {value: 0}
+        target: {value: 0},
       });
       expect(inputElement).toHaveValue(0);
 

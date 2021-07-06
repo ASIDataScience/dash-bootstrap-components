@@ -24,7 +24,7 @@ describe('ListGroup', () => {
 
   test('applies horizontal styles with "horizontal" prop', () => {
     const {
-      container: {firstChild: listGroup}
+      container: {firstChild: listGroup},
     } = render(<ListGroup horizontal />);
 
     expect(listGroup).toHaveClass('list-group-horizontal');
@@ -32,7 +32,7 @@ describe('ListGroup', () => {
 
   test('applies flush styles with "flush" prop', () => {
     const {
-      container: {firstChild: listGroup}
+      container: {firstChild: listGroup},
     } = render(<ListGroup flush />);
 
     expect(listGroup).toHaveClass('list-group-flush');

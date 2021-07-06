@@ -10,7 +10,7 @@ describe('Select', () => {
         id="test-select"
         options={[
           {label: 'Item 1', value: '1'},
-          {label: 'Item 2', value: '2'}
+          {label: 'Item 2', value: '2'},
         ]}
       />
     );
@@ -27,13 +27,13 @@ describe('Select', () => {
 
   test('has no value by default', () => {
     const {
-      container: {firstChild: select}
+      container: {firstChild: select},
     } = render(
       <Select
         id="test-select"
         options={[
           {label: 'Item 1', value: '1'},
-          {label: 'Item 2', value: '2'}
+          {label: 'Item 2', value: '2'},
         ]}
       />
     );
@@ -43,13 +43,13 @@ describe('Select', () => {
 
   test('updates value itself when setProps is not set', () => {
     const {
-      container: {firstChild: select}
+      container: {firstChild: select},
     } = render(
       <Select
         id="test-select"
         options={[
           {label: 'Item 1', value: '1'},
-          {label: 'Item 2', value: '2'}
+          {label: 'Item 2', value: '2'},
         ]}
       />
     );
@@ -64,13 +64,13 @@ describe('Select', () => {
     const mockSetProps = jest.fn();
     const {
       container: {firstChild: select},
-      rerender
+      rerender,
     } = render(
       <Select
         id="test-select"
         options={[
           {label: 'Item 1', value: '1'},
-          {label: 'Item 2', value: '2'}
+          {label: 'Item 2', value: '2'},
         ]}
         setProps={mockSetProps}
       />
@@ -89,7 +89,7 @@ describe('Select', () => {
         id="test-select"
         options={[
           {label: 'Item 1', value: '1'},
-          {label: 'Item 2', value: '2'}
+          {label: 'Item 2', value: '2'},
         ]}
         setProps={mockSetProps}
         value="2"

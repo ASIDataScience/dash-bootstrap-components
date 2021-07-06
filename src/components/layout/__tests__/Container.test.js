@@ -17,7 +17,7 @@ describe('Container', () => {
 
   test('renders a fluid container if "fluid" is set', () => {
     const {
-      container: {firstChild: container}
+      container: {firstChild: container},
     } = render(<Container fluid />);
 
     expect(container).toHaveClass('container-fluid');

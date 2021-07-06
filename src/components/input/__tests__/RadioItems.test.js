@@ -15,7 +15,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
         />
@@ -68,7 +68,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={value1}
@@ -90,7 +90,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={value2}
@@ -134,7 +134,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={value1}
@@ -156,7 +156,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={value2}
@@ -181,7 +181,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           inline
@@ -200,12 +200,12 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={2}
-          labelCheckedClassName="a-checked-label"
-          labelCheckedStyle={{color: 'green'}}
+          label_checked_class_name="a-checked-label"
+          label_checked_style={{color: 'green'}}
         />
       );
       const [child1, child2, child3] = radioItems.container.firstChild.children;
@@ -236,7 +236,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
         />
@@ -275,7 +275,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           switch
@@ -310,7 +310,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={value1}
@@ -333,7 +333,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={value2}
@@ -378,7 +378,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={value1}
@@ -401,7 +401,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={value2}
@@ -425,7 +425,7 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           inline
@@ -451,12 +451,12 @@ describe('RadioItems', () => {
           options={[
             {label: 'Item 1', value: 1},
             {label: 'Item 2', value: 2},
-            {label: 'Disabled item', value: 3, disabled: true}
+            {label: 'Disabled item', value: 3, disabled: true},
           ]}
           setProps={mockSetProps}
           value={2}
-          labelCheckedClassName="a-checked-label"
-          labelCheckedStyle={{color: 'green'}}
+          label_checked_class_name="a-checked-label"
+          label_checked_style={{color: 'green'}}
         />
       );
       const [child1, child2, child3] = radioItems.container.firstChild.children;

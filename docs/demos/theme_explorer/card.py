@@ -17,7 +17,9 @@ cards = html.Div(
                                     "This card has a title",
                                     class_name="card-title",
                                 ),
-                                html.P("And some text", class_name="card-text"),
+                                html.P(
+                                    "And some text", class_name="card-text"
+                                ),
                             ]
                         ),
                     ]

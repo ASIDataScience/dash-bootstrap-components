@@ -60,8 +60,8 @@ class CardTitle(object):
     def __init__(self, *args, **kwargs):
         raise AttributeError(
             "CardTitle has been removed from dash-bootstrap-components. Set "
-            "class_name='card-title' on a html.H* component instead. CardTitle "
-            "originally used H5."
+            "class_name='card-title' on a html.H* component instead. "
+            "CardTitle originally used H5."
         )
 
 

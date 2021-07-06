@@ -11,7 +11,7 @@ jest.mock('popper.js', () => {
     constructor() {
       return {
         destroy: () => {},
-        scheduleUpdate: () => {}
+        scheduleUpdate: () => {},
       };
     }
   };
@@ -27,7 +27,7 @@ describe('Popover', () => {
 
   test('renders a div with class "popover", and inner div with class "popover-inner"', () => {
     render(<Popover target="test-target" is_open />, {
-      container: document.body.appendChild(div)
+      container: document.body.appendChild(div),
     });
 
     expect(document.body.querySelector('.popover')).not.toBe(null);
@@ -36,7 +36,7 @@ describe('Popover', () => {
 
   test('renders nothing if is_open=false', () => {
     render(<Popover target="test-target" is_open={false} />, {
-      container: document.body.appendChild(div)
+      container: document.body.appendChild(div),
     });
 
     expect(document.body.querySelector('.popover')).toBe(null);

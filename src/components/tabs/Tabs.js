@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import {Nav, NavItem, NavLink, TabContent, TabPane} from 'reactstrap';
 import {isNil} from 'ramda';
 
-const resolveChildProps = child => {
+const resolveChildProps = (child) => {
   // This may need to change in the future if https://github.com/plotly/dash-renderer/issues/84 is addressed
   if (
     // disabled is a defaultProp (so it's always set)
@@ -24,7 +24,7 @@ const resolveChildProps = child => {
   }
 };
 
-const parseChildrenToArray = children => {
+const parseChildrenToArray = (children) => {
   if (children && !Array.isArray(children)) {
     // if dcc.Tabs.children contains just one single element, it gets passed as an object
     // instead of an array - so we put in in a array ourselves!
@@ -37,17 +37,18 @@ const parseChildrenToArray = children => {
  * Create Bootstrap styled tabs. Use the `active_tab` property to set, or get
  * get the currently active tab in a callback.
  */
-const Tabs = props => {
+const Tabs = (props) => {
   let {
     children,
     id,
     card,
     className,
+    class_name,
     style,
     active_tab,
     key,
     loading_state,
-    setProps
+    setProps,
   } = props;
   children = parseChildrenToArray(children);
 
@@ -56,12 +57,12 @@ const Tabs = props => {
     if (setProps && active_tab === undefined) {
       setProps({
         active_tab:
-          children && (resolveChildProps(children[0]).tab_id || 'tab-0')
+          children && (resolveChildProps(children[0]).tab_id || 'tab-0'),
       });
     }
   }, []);
 
-  const toggle = tab => {
+  const toggle = (tab) => {
     if (setProps) {
       if (active_tab !== tab) {
         setProps({active_tab: tab});
@@ -85,14 +86,18 @@ const Tabs = props => {
               : childProps.tab_style
           }
           className={classnames(
-            childProps.tabClassName,
-            active && childProps.activeTabClassName
+            childProps.tab_class_name || childProps.tabClassName,
+            active &&
+              (childProps.active_tab_class_name ||
+                childProps.activeTabClassName)
           )}
         >
           <NavLink
             className={classnames(
-              childProps.labelClassName,
-              active && childProps.activeLabelClassName,
+              childProps.label_class_name || childProps.labelClassName,
+              active &&
+                (childProps.active_label_class_name ||
+                  childProps.activeLabelClassName),
               {active}
             )}
             href="#"
@@ -128,9 +133,13 @@ const Tabs = props => {
         label_style,
         active_label_style,
         tabClassName,
+        tab_class_name,
         activeTabClassName,
+        active_tab_class_name,
         labelClassName,
+        label_class_name,
         activeLabelClassName,
+        active_label_class_name,
         loading_state,
         ...otherProps
       } = childProps;
@@ -158,7 +167,13 @@ const Tabs = props => {
         (loading_state && loading_state.is_loading) || undefined
       }
     >
-      <Nav id={id} tabs card={card} className={className} style={style}>
+      <Nav
+        id={id}
+        tabs
+        card={card}
+        className={class_name || className}
+        style={style}
+      >
         {links}
       </Nav>
       <TabContent activeTab={active_tab}>{tabs}</TabContent>
@@ -168,7 +183,7 @@ const Tabs = props => {
 
 Tabs.defaultProps = {
   persisted_props: ['active_tab'],
-  persistence_type: 'local'
+  persistence_type: 'local',
 };
 
 Tabs.propTypes = {
@@ -235,7 +250,7 @@ Tabs.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
+    component_name: PropTypes.string,
   }),
 
   /**
@@ -249,7 +264,7 @@ Tabs.propTypes = {
   persistence: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
 
   /**
@@ -265,7 +280,7 @@ Tabs.propTypes = {
    * local: window.localStorage, data is kept after the browser quit.
    * session: window.sessionStorage, data is cleared once the browser quit.
    */
-  persistence_type: PropTypes.oneOf(['local', 'session', 'memory'])
+  persistence_type: PropTypes.oneOf(['local', 'session', 'memory']),
 };
 
 export default Tabs;

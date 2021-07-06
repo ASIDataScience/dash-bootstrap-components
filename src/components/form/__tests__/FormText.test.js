@@ -17,13 +17,13 @@ describe('FormText', () => {
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: formTextPrimary}
+      container: {firstChild: formTextPrimary},
     } = render(<FormText color="primary" />);
     const {
-      container: {firstChild: formTextSuccess}
+      container: {firstChild: formTextSuccess},
     } = render(<FormText color="success" />);
     const {
-      container: {firstChild: formTextDark}
+      container: {firstChild: formTextDark},
     } = render(<FormText color="dark" />);
 
     expect(formTextPrimary).toHaveClass('text-primary');

@@ -5,8 +5,16 @@ import React, {useEffect, useState} from 'react';
 /**
  * Creates a single radio button. Use the `checked` prop in your callbacks.
  */
-const RadioButton = props => {
-  const {checked, loading_state, disabled, setProps, ...otherProps} = props;
+const RadioButton = (props) => {
+  const {
+    checked,
+    loading_state,
+    disabled,
+    setProps,
+    className,
+    class_name,
+    ...otherProps
+  } = props;
   const [checkedState, setCheckedState] = useState(checked || false);
 
   useEffect(() => {
@@ -19,6 +27,7 @@ const RadioButton = props => {
     <input
       type="radio"
       checked={checkedState}
+      className={class_name || className}
       {...omit(
         ['setProps', 'persistence', 'persistence_type', 'persisted_props'],
         otherProps
@@ -29,7 +38,7 @@ const RadioButton = props => {
           setCheckedState(!checkedState);
           if (setProps) {
             setProps({
-              checked: !checkedState
+              checked: !checkedState,
             });
           }
         }
@@ -45,7 +54,7 @@ const RadioButton = props => {
 RadioButton.defaultProps = {
   checked: false,
   persisted_props: ['checked'],
-  persistence_type: 'local'
+  persistence_type: 'local',
 };
 
 RadioButton.propTypes = {
@@ -61,6 +70,13 @@ RadioButton.propTypes = {
   checked: PropTypes.bool,
 
   /**
+   * The class of the container (div)
+   */
+  class_name: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `class_name` instead.
+   *
    * The class of the container (div)
    */
   className: PropTypes.string,
@@ -97,7 +113,7 @@ RadioButton.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
+    component_name: PropTypes.string,
   }),
 
   /**
@@ -111,7 +127,7 @@ RadioButton.propTypes = {
   persistence: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
 
   /**
@@ -137,7 +153,7 @@ RadioButton.propTypes = {
   /**
    * The name of the control, which is submitted with the form data.
    */
-  name: PropTypes.string
+  name: PropTypes.string,
 };
 
 export default RadioButton;

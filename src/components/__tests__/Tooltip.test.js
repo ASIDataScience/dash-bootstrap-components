@@ -13,7 +13,7 @@ jest.mock('popper.js', () => {
     constructor() {
       return {
         destroy: () => {},
-        scheduleUpdate: () => {}
+        scheduleUpdate: () => {},
       };
     }
   };
@@ -29,7 +29,7 @@ describe('Tooltip', () => {
 
   test('renders nothing by default', () => {
     render(<Tooltip target="test-target" />, {
-      container: document.body.appendChild(div)
+      container: document.body.appendChild(div),
     });
 
     expect(document.body.querySelector('.tooltip')).toBe(null);
@@ -38,7 +38,7 @@ describe('Tooltip', () => {
 
   test('renders a div with class "tooltip", and inner div with class "tooltip-inner" on mouseOver', () => {
     render(<Tooltip target="test-target" />, {
-      container: document.body.appendChild(div)
+      container: document.body.appendChild(div),
     });
 
     fireEvent.mouseOver(div);
@@ -56,7 +56,7 @@ describe('Tooltip', () => {
 
   test('renders a div with class "tooltip", and inner div with class "tooltip-inner" on focusIn', () => {
     render(<Tooltip target="test-target" />, {
-      container: document.body.appendChild(div)
+      container: document.body.appendChild(div),
     });
 
     fireEvent.focusIn(div);
@@ -74,7 +74,7 @@ describe('Tooltip', () => {
 
   test('renders its content', () => {
     render(<Tooltip target="test-target">Tooltip content</Tooltip>, {
-      container: document.body.appendChild(div)
+      container: document.body.appendChild(div),
     });
 
     fireEvent.mouseOver(div);

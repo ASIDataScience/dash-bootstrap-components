@@ -7,7 +7,7 @@ import classNames from 'classnames';
  * A basic HTML textarea for entering multiline text based on the corresponding
  * component in dash-core-components
  */
-const Textarea = props => {
+const Textarea = (props) => {
   const {
     value,
     n_clicks,
@@ -15,11 +15,30 @@ const Textarea = props => {
     n_submit,
     setProps,
     className,
+    class_name,
     invalid,
     valid,
     bs_size,
     debounce,
     loading_state,
+    autoFocus,
+    autofocus,
+    maxLength,
+    maxlength,
+    minLength,
+    minlength,
+    readOnly,
+    readonly,
+    accessKey,
+    accesskey,
+    contentEditable,
+    contenteditable,
+    contextMenu,
+    contextmenu,
+    spellCheck,
+    spellcheck,
+    tabIndex,
+    tabindex,
     ...otherProps
   } = props;
   const [valueState, setValueState] = useState(value || '');
@@ -30,7 +49,7 @@ const Textarea = props => {
     }
   }, [value]);
 
-  const onChange = e => {
+  const onChange = (e) => {
     const newValue = e.target.value;
     setValueState(newValue);
     if (!debounce && setProps) {
@@ -42,7 +61,7 @@ const Textarea = props => {
     if (setProps) {
       const payload = {
         n_blur: n_blur + 1,
-        n_blur_timestamp: Date.now()
+        n_blur_timestamp: Date.now(),
       };
       if (debounce) {
         payload.value = value;
@@ -51,11 +70,11 @@ const Textarea = props => {
     }
   };
 
-  const onKeyPress = e => {
+  const onKeyPress = (e) => {
     if (setProps && e.key === 'Enter') {
       const payload = {
         n_submit: n_submit + 1,
-        n_submit_timestamp: Date.now()
+        n_submit_timestamp: Date.now(),
       };
       if (debounce) {
         payload.value = value;
@@ -68,13 +87,13 @@ const Textarea = props => {
     if (setProps) {
       setProps({
         n_clicks: n_clicks + 1,
-        n_clicks_timestamp: Date.now()
+        n_clicks_timestamp: Date.now(),
       });
     }
   };
 
   const classes = classNames(
-    className,
+    class_name || className,
     invalid && 'is-invalid',
     valid && 'is-valid',
     bs_size ? `form-control-${bs_size}` : false,
@@ -89,13 +108,22 @@ const Textarea = props => {
       onBlur={onBlur}
       onKeyPress={onKeyPress}
       onClick={onClick}
+      autoFocus={autofocus || autoFocus}
+      maxLength={maxlength || maxLength}
+      minLength={minlength || minLength}
+      readOnly={readonly || readOnly}
+      accessKey={accesskey || accessKey}
+      contentEditable={contenteditable || contentEditable}
+      contextMenu={contextmenu || contextMenu}
+      spellCheck={spellcheck || spellCheck}
+      tabIndex={tabindex || tabIndex}
       {...omit(
         [
           'n_blur_timestamp',
           'n_submit_timestamp',
           'persistence',
           'persistence_type',
-          'persisted_props'
+          'persisted_props',
         ],
         otherProps
       )}
@@ -129,6 +157,13 @@ Textarea.propTypes = {
   /**
    * The element should be automatically focused after the page loaded.
    */
+  autofocus: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `autofocus` instead
+   *
+   * The element should be automatically focused after the page loaded.
+   */
   autoFocus: PropTypes.string,
 
   /**
@@ -149,9 +184,23 @@ Textarea.propTypes = {
   /**
    * Defines the maximum number of characters allowed in the element.
    */
+  maxlength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+  /**
+   * **DEPRECATED** Use `maxlength` instead
+   *
+   * Defines the maximum number of characters allowed in the element.
+   */
   maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
   /**
+   * Defines the minimum number of characters allowed in the element.
+   */
+  minlength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+  /**
+   * **DEPRECATED** Use `minlength` instead
+   *
    * Defines the minimum number of characters allowed in the element.
    */
   minLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -169,9 +218,19 @@ Textarea.propTypes = {
   /**
    * Indicates whether the element can be edited.
    */
+  readonly: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['readOnly', 'readonly', 'READONLY']),
+  ]),
+
+  /**
+   * **DEPRECATED** Use `readonly` instead
+   *
+   * Indicates whether the element can be edited.
+   */
   readOnly: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.oneOf(['readOnly', 'readonly', 'READONLY'])
+    PropTypes.oneOf(['readOnly', 'readonly', 'READONLY']),
   ]),
 
   /**
@@ -185,7 +244,7 @@ Textarea.propTypes = {
    */
   required: PropTypes.oneOfType([
     PropTypes.oneOf(['required', 'REQUIRED']),
-    PropTypes.bool
+    PropTypes.bool,
   ]),
 
   /**
@@ -199,6 +258,13 @@ Textarea.propTypes = {
   wrap: PropTypes.string,
 
   /**
+   * Defines a keyboard shortcut to activate or add focus to the element.
+   */
+  accesskey: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `accesskey` instead
+   *
    * Defines a keyboard shortcut to activate or add focus to the element.
    */
   accessKey: PropTypes.string,
@@ -218,9 +284,23 @@ Textarea.propTypes = {
   /**
    * Indicates whether the element's content is editable.
    */
+  contenteditable: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+  /**
+   * **DEPRECATED** Use `contenteditable` instead
+   *
+   * Indicates whether the element's content is editable.
+   */
   contentEditable: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
   /**
+   * Defines the ID of a <menu> element which will serve as the element's context menu.
+   */
+  contextmenu: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `contextmenu` instead
+   *
    * Defines the ID of a <menu> element which will serve as the element's context menu.
    */
   contextMenu: PropTypes.string,
@@ -236,7 +316,7 @@ Textarea.propTypes = {
   draggable: PropTypes.oneOfType([
     // enumerated property, not a boolean property: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable
     PropTypes.oneOf(['true', 'false']),
-    PropTypes.bool
+    PropTypes.bool,
   ]),
 
   /**
@@ -252,10 +332,21 @@ Textarea.propTypes = {
   /**
    * Indicates whether spell checking is allowed for the element.
    */
+  spellcheck: PropTypes.oneOfType([
+    // enumerated property, not a boolean property: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable
+    PropTypes.oneOf(['true', 'false']),
+    PropTypes.bool,
+  ]),
+
+  /**
+   * **DEPRECATED** Use `spellcheck` instead
+   *
+   * Indicates whether spell checking is allowed for the element.
+   */
   spellCheck: PropTypes.oneOfType([
     // enumerated property, not a boolean property: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable
     PropTypes.oneOf(['true', 'false']),
-    PropTypes.bool
+    PropTypes.bool,
   ]),
 
   /**
@@ -264,6 +355,13 @@ Textarea.propTypes = {
   style: PropTypes.object,
 
   /**
+   * Overrides the browser's default tab order and follows the one specified instead.
+   */
+  tabindex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+  /**
+   * **DEPRECATED** Use `tabindex` instead
+   *
    * Overrides the browser's default tab order and follows the one specified instead.
    */
   tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -348,7 +446,7 @@ Textarea.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
+    component_name: PropTypes.string,
   }),
 
   /**
@@ -362,7 +460,7 @@ Textarea.propTypes = {
   persistence: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
 
   /**
@@ -378,7 +476,7 @@ Textarea.propTypes = {
    * local: window.localStorage, data is kept after the browser quit.
    * session: window.sessionStorage, data is cleared once the browser quit.
    */
-  persistence_type: PropTypes.oneOf(['local', 'session', 'memory'])
+  persistence_type: PropTypes.oneOf(['local', 'session', 'memory']),
 };
 
 Textarea.defaultProps = {
@@ -391,7 +489,7 @@ Textarea.defaultProps = {
   debounce: false,
   persisted_props: ['value'],
   persistence_type: 'local',
-  value: ''
+  value: '',
 };
 
 export default Textarea;

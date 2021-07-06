@@ -17,7 +17,7 @@ describe('NavItem', () => {
 
   test('applies "active" class with "active" prop', () => {
     const {
-      container: {firstChild: navItem}
+      container: {firstChild: navItem},
     } = render(<NavItem active />);
 
     expect(navItem).toHaveClass('active');

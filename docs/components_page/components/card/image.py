@@ -13,7 +13,9 @@ top_card = dbc.Card(
 
 bottom_card = dbc.Card(
     [
-        dbc.CardBody(html.P("This has a bottom image", class_name="card-text")),
+        dbc.CardBody(
+            html.P("This has a bottom image", class_name="card-text")
+        ),
         dbc.CardImg(src="/static/images/placeholder286x180.png", bottom=True),
     ],
     style={"width": "18rem"},

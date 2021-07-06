@@ -6,7 +6,7 @@ import RadioButton from '../RadioButton';
 describe('RadioButton', () => {
   test('renders a radio button', () => {
     const {
-      container: {firstChild: radioButton}
+      container: {firstChild: radioButton},
     } = render(<RadioButton />);
 
     expect(radioButton).toHaveAttribute('type', 'radio');
@@ -15,7 +15,7 @@ describe('RadioButton', () => {
   test('passes checked prop on to underlying HTML element', () => {
     const {
       container: {firstChild: radioButton},
-      rerender
+      rerender,
     } = render(<RadioButton />);
     expect(radioButton.checked).toEqual(false);
 
@@ -30,7 +30,7 @@ describe('RadioButton', () => {
     const mockSetProps = jest.fn();
     const {
       container: {firstChild: radioButton},
-      rerender
+      rerender,
     } = render(<RadioButton setProps={mockSetProps} />);
 
     userEvent.click(radioButton);

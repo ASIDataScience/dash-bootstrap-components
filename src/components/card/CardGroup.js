@@ -7,13 +7,14 @@ import {CardGroup as RSCardGroup} from 'reactstrap';
  * Use CardGroup to render cards as a single, attached element of columns with
  * equal width and height.
  */
-const CardGroup = props => {
-  const {children, loading_state, ...otherProps} = props;
+const CardGroup = (props) => {
+  const {children, loading_state, className, class_name, ...otherProps} = props;
   return (
     <RSCardGroup
       data-dash-is-loading={
         (loading_state && loading_state.is_loading) || undefined
       }
+      className={class_name || className}
       {...omit(['setProps'], otherProps)}
     >
       {children}
@@ -78,8 +79,8 @@ CardGroup.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
-  })
+    component_name: PropTypes.string,
+  }),
 };
 
 export default CardGroup;

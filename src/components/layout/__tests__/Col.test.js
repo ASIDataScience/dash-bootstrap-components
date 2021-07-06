@@ -17,22 +17,22 @@ describe('Col', () => {
 
   test('sets width at all breakpoints', () => {
     const {
-      container: {firstChild: colWidth}
+      container: {firstChild: colWidth},
     } = render(<Col width={4} />);
     const {
-      container: {firstChild: colXs}
+      container: {firstChild: colXs},
     } = render(<Col xs={8} />);
     const {
-      container: {firstChild: colSm}
+      container: {firstChild: colSm},
     } = render(<Col sm="auto" />);
     const {
-      container: {firstChild: colMd}
+      container: {firstChild: colMd},
     } = render(<Col md="3" />);
     const {
-      container: {firstChild: colLg}
+      container: {firstChild: colLg},
     } = render(<Col lg={7} />);
     const {
-      container: {firstChild: colXl}
+      container: {firstChild: colXl},
     } = render(<Col xl={true} />);
 
     expect(colWidth).toHaveClass('col-4');
@@ -45,22 +45,22 @@ describe('Col', () => {
 
   test('sets width, order and offset if object passed', () => {
     const {
-      container: {firstChild: colWidth}
+      container: {firstChild: colWidth},
     } = render(<Col width={{size: 4, order: 2, offset: 4}} />);
     const {
-      container: {firstChild: colXs}
+      container: {firstChild: colXs},
     } = render(<Col xs={{size: 8, order: 3, offset: 4}} />);
     const {
-      container: {firstChild: colSm}
+      container: {firstChild: colSm},
     } = render(<Col sm={{size: 'auto', order: 'last', offset: 12}} />);
     const {
-      container: {firstChild: colMd}
+      container: {firstChild: colMd},
     } = render(<Col md={{size: '3', order: 'first', offset: 1}} />);
     const {
-      container: {firstChild: colLg}
+      container: {firstChild: colLg},
     } = render(<Col lg={{size: 7, order: '2', offset: '4'}} />);
     const {
-      container: {firstChild: colXl}
+      container: {firstChild: colXl},
     } = render(<Col xl={{size: true, order: '12', offset: 1}} />);
 
     expect(colWidth).toHaveClass('col-4 order-2 offset-4');
@@ -74,7 +74,7 @@ describe('Col', () => {
   test('sets alignment classes with the "align" prop', () => {
     // col align
     const {
-      container: {firstChild: colAlign}
+      container: {firstChild: colAlign},
     } = render(<Col align="center" />);
 
     expect(colAlign).toHaveClass('col align-self-center');

@@ -10,8 +10,16 @@ import {bootstrapColors} from '../../private/BootstrapColors';
  * conjunction with CardColumns, CardDeck, CardGroup for different layout
  * options.
  */
-const Card = props => {
-  const {children, color, style, loading_state, ...otherProps} = props;
+const Card = (props) => {
+  const {
+    children,
+    color,
+    style,
+    loading_state,
+    className,
+    class_name,
+    ...otherProps
+  } = props;
   const isBootstrapColor = bootstrapColors.has(color);
   return (
     <RSCard
@@ -20,6 +28,7 @@ const Card = props => {
       }
       color={isBootstrapColor ? color : null}
       style={!isBootstrapColor ? {backgroundColor: color, ...style} : style}
+      className={class_name || className}
       {...omit(['setProps'], otherProps)}
     >
       {children}
@@ -103,8 +112,8 @@ Card.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
-  })
+    component_name: PropTypes.string,
+  }),
 };
 
 export default Card;

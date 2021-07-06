@@ -6,12 +6,18 @@ describe('CardColumns', () => {
   test('renders a div with class "card-columns"', () => {
     const cardColumns = render(<CardColumns />);
 
-    expect(cardColumns.container.querySelector('div.card-columns')).not.toBe(null);
+    expect(cardColumns.container.querySelector('div.card-columns')).not.toBe(
+      null
+    );
   });
 
   test('renders its content', () => {
-    const cardColumns = render(<CardColumns>Some card columns content</CardColumns>);
+    const cardColumns = render(
+      <CardColumns>Some card columns content</CardColumns>
+    );
 
-    expect(cardColumns.container).toHaveTextContent('Some card columns content');
+    expect(cardColumns.container).toHaveTextContent(
+      'Some card columns content'
+    );
   });
 });

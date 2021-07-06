@@ -30,10 +30,10 @@ describe('InputGroup', () => {
   test('applies sizing CSS classes', () => {
     // inputGroup sizes
     const {
-      container: {firstChild: inputGroupSm}
+      container: {firstChild: inputGroupSm},
     } = render(<InputGroup size="sm" />);
     const {
-      container: {firstChild: inputGroupLg}
+      container: {firstChild: inputGroupLg},
     } = render(<InputGroup size="lg" />);
 
     expect(inputGroupSm).toHaveClass('input-group-sm');

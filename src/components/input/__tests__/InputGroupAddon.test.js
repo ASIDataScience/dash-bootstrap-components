@@ -21,7 +21,7 @@ describe('InputGroupAddon', () => {
 
   test('renders its content', () => {
     const {
-      container: {firstChild: inputGroupAddonString}
+      container: {firstChild: inputGroupAddonString},
     } = render(<InputGroupAddon>Addon</InputGroupAddon>);
 
     expect(inputGroupAddonString).toHaveTextContent('Addon');
@@ -29,7 +29,7 @@ describe('InputGroupAddon', () => {
     expect(inputGroupAddonString.firstChild).toHaveClass('input-group-text');
 
     const {
-      container: {firstChild: inputGroupAddonText}
+      container: {firstChild: inputGroupAddonText},
     } = render(
       <InputGroupAddon>
         <InputGroupText>Addon text</InputGroupText>
@@ -40,7 +40,7 @@ describe('InputGroupAddon', () => {
     expect(inputGroupAddonText.firstChild).toHaveClass('input-group-text');
 
     const {
-      container: {firstChild: inputGroupAddonButton}
+      container: {firstChild: inputGroupAddonButton},
     } = render(
       <InputGroupAddon>
         <Button>Addon button</Button>
@@ -51,7 +51,7 @@ describe('InputGroupAddon', () => {
     expect(inputGroupAddonButton.firstChild).toHaveClass('btn btn-secondary');
 
     const {
-      container: {firstChild: inputGroupAddonDropdown}
+      container: {firstChild: inputGroupAddonDropdown},
     } = render(
       <InputGroupAddon>
         <DropdownMenu label="Addon dropdown">

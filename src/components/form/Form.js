@@ -7,28 +7,31 @@ import {Form as RSForm} from 'reactstrap';
  * The Form component can be used to organise collections of input components
  * and apply consistent styling.
  */
-const Form = props => {
+const Form = (props) => {
   const {
     children,
     loading_state,
     n_submit,
     prevent_default_on_submit,
     setProps,
+    className,
+    class_name,
     ...otherProps
   } = props;
   return (
     <RSForm
-      onSubmit={e => {
+      onSubmit={(e) => {
         if (prevent_default_on_submit) {
           e.preventDefault();
         }
         if (setProps) {
           setProps({
             n_submit: n_submit + 1,
-            n_submit_timestamp: Date.now()
+            n_submit_timestamp: Date.now(),
           });
         }
       }}
+      className={class_name || className}
       {...omit(['n_submit_timestamp'], otherProps)}
       data-dash-is-loading={
         (loading_state && loading_state.is_loading) || undefined
@@ -42,7 +45,7 @@ const Form = props => {
 Form.defaultProps = {
   prevent_default_on_submit: true,
   n_submit: 0,
-  n_submit_timestamp: -1
+  n_submit_timestamp: -1,
 };
 
 Form.propTypes = {
@@ -91,7 +94,7 @@ Form.propTypes = {
    * Defines which HTTP method to use when submitting the form. Can be GET
    * (default) or POST.
    */
-  method: PropTypes.oneOf(["GET", "POST"]),
+  method: PropTypes.oneOf(['GET', 'POST']),
 
   /**
    * Use inline=True to apply the `form-inline` class, allowing you to display
@@ -132,8 +135,8 @@ Form.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
-  })
+    component_name: PropTypes.string,
+  }),
 };
 
 export default Form;

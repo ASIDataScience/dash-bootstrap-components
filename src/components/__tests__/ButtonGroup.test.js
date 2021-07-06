@@ -23,15 +23,21 @@ describe('ButtonGroup', () => {
   });
 
   test('applies vertical styles with "vertical" prop', () => {
-    const {container: {firstChild: buttonGroup}} = render(<ButtonGroup vertical />);
+    const {
+      container: {firstChild: buttonGroup},
+    } = render(<ButtonGroup vertical />);
 
     expect(buttonGroup).toHaveClass('btn-group-vertical');
   });
 
   test('applies sizing CSS classes', () => {
     // buttonGroup sizes
-    const {container: {firstChild: buttonGroupSm}} = render(<ButtonGroup size="sm" />);
-    const {container: {firstChild: buttonGroupLg}} = render(<ButtonGroup size="lg" />);
+    const {
+      container: {firstChild: buttonGroupSm},
+    } = render(<ButtonGroup size="sm" />);
+    const {
+      container: {firstChild: buttonGroupLg},
+    } = render(<ButtonGroup size="lg" />);
 
     expect(buttonGroupSm).toHaveClass('btn-group-sm');
     expect(buttonGroupLg).toHaveClass('btn-group-lg');

@@ -20,7 +20,9 @@ badge = html.Div(
 badge_pills = html.Div(
     [
         dbc.Badge("Primary", color="primary", class_name="mr-1", pill=True),
-        dbc.Badge("Secondary", color="secondary", class_name="mr-1", pill=True),
+        dbc.Badge(
+            "Secondary", color="secondary", class_name="mr-1", pill=True
+        ),
         dbc.Badge("Success", color="success", class_name="mr-1", pill=True),
         dbc.Badge("Warning", color="warning", class_name="mr-1", pill=True),
         dbc.Badge("Danger", color="danger", class_name="mr-1", pill=True),

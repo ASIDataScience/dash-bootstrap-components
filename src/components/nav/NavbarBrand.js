@@ -7,10 +7,11 @@ import Link from '../../private/Link';
 /**
  * Call out attention to a brand name or site title within a navbar.
  */
-const NavbarBrand = props => {
-  const {children, loading_state, ...otherProps} = props;
+const NavbarBrand = (props) => {
+  const {children, loading_state, className, class_name, ...otherProps} = props;
   return (
     <RSNavbarBrand
+      className={class_name || className}
       {...omit(['setProps'], otherProps)}
       tag={props.href ? Link : 'span'}
       data-dash-is-loading={
@@ -88,8 +89,8 @@ NavbarBrand.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
-  })
+    component_name: PropTypes.string,
+  }),
 };
 
 export default NavbarBrand;

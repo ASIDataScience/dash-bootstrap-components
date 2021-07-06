@@ -8,7 +8,7 @@ import {bootstrapColors} from '../../private/BootstrapColors';
 /**
  * Create a single item in a `ListGroup`.
  */
-const ListGroupItem = props => {
+const ListGroupItem = (props) => {
   let {
     children,
     disabled,
@@ -18,6 +18,8 @@ const ListGroupItem = props => {
     setProps,
     color,
     style,
+    className,
+    class_name,
     ...otherProps
   } = props;
 
@@ -25,7 +27,7 @@ const ListGroupItem = props => {
     if (!disabled && setProps) {
       setProps({
         n_clicks: n_clicks + 1,
-        n_clicks_timestamp: Date.now()
+        n_clicks_timestamp: Date.now(),
       });
     }
   };
@@ -40,6 +42,7 @@ const ListGroupItem = props => {
       disabled={disabled}
       color={isBootstrapColor ? color : null}
       style={!isBootstrapColor ? {backgroundColor: color, ...style} : style}
+      className={class_name || className}
       {...omit(['n_clicks_timestamp'], otherProps)}
       data-dash-is-loading={
         (loading_state && loading_state.is_loading) || undefined
@@ -52,7 +55,7 @@ const ListGroupItem = props => {
 
 ListGroupItem.defaultProps = {
   n_clicks: 0,
-  n_clicks_timestamp: -1
+  n_clicks_timestamp: -1,
 };
 
 ListGroupItem.propTypes = {
@@ -163,13 +166,13 @@ ListGroupItem.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
+    component_name: PropTypes.string,
   }),
 
   /**
    * Target attribute to pass on to the link. Only applies to external links.
    */
-  target: PropTypes.string
+  target: PropTypes.string,
 };
 
 export default ListGroupItem;

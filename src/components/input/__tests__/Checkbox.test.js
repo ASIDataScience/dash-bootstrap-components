@@ -12,7 +12,7 @@ describe('Checkbox', () => {
 
   test('toggles checked value on click', () => {
     const {
-      container: {firstChild: checkbox}
+      container: {firstChild: checkbox},
     } = render(<Checkbox />);
     expect(checkbox.checked).toEqual(false);
 
@@ -27,7 +27,7 @@ describe('Checkbox', () => {
     const mockSetProps = jest.fn();
     const {
       container: {firstChild: checkbox},
-      rerender
+      rerender,
     } = render(<Checkbox setProps={mockSetProps} />);
 
     userEvent.click(checkbox);

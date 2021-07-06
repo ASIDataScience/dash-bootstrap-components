@@ -17,7 +17,7 @@ describe('Jumbotron', () => {
 
   test('renders a fluid jumbotron if "fluid" is set', () => {
     const {
-      container: {firstChild: jumbotron}
+      container: {firstChild: jumbotron},
     } = render(<Jumbotron fluid />);
 
     expect(jumbotron).toHaveClass('jumbotron jumbotron-fluid');

@@ -4,7 +4,7 @@ import {omit} from 'ramda';
 import classNames from 'classnames';
 import InputGroupText from './InputGroupText';
 
-const isCheckOrRadio = el => {
+const isCheckOrRadio = (el) => {
   return (
     el.props &&
     el.props._dashprivate_layout &&
@@ -13,7 +13,7 @@ const isCheckOrRadio = el => {
   );
 };
 
-const parseChildrenToArray = children => {
+const parseChildrenToArray = (children) => {
   if (children) {
     if (!Array.isArray(children)) {
       return [children];
@@ -38,9 +38,19 @@ const wrapChild = (child, i) => {
  * A component to wrap addons (such as text or buttons) when used with
  * InputGroup
  */
-const InputGroupAddon = props => {
-  let {children, loading_state, className, addon_type, ...otherProps} = props;
-  const classes = classNames(className, 'input-group-' + addon_type);
+const InputGroupAddon = (props) => {
+  let {
+    children,
+    loading_state,
+    className,
+    class_name,
+    addon_type,
+    ...otherProps
+  } = props;
+  const classes = classNames(
+    class_name || className,
+    'input-group-' + addon_type
+  );
 
   children = parseChildrenToArray(children);
 
@@ -116,8 +126,8 @@ InputGroupAddon.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
-  })
+    component_name: PropTypes.string,
+  }),
 };
 
 export default InputGroupAddon;

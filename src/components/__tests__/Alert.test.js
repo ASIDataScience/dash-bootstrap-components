@@ -25,16 +25,16 @@ describe('Alert', () => {
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: alertSuccess}
+      container: {firstChild: alertSuccess},
     } = render(<Alert />);
     const {
-      container: {firstChild: alertPrimary}
+      container: {firstChild: alertPrimary},
     } = render(<Alert color="primary" />);
     const {
-      container: {firstChild: alertDanger}
+      container: {firstChild: alertDanger},
     } = render(<Alert color="danger" />);
     const {
-      container: {firstChild: alertDark}
+      container: {firstChild: alertDark},
     } = render(<Alert color="dark" />);
 
     expect(alertSuccess).toHaveClass('alert-success');
@@ -45,7 +45,7 @@ describe('Alert', () => {
 
   test('applies custom color with "color" prop', () => {
     const {
-      container: {firstChild: alert}
+      container: {firstChild: alert},
     } = render(<Alert color="#FA7268" />);
 
     expect(alert).toHaveStyle('background-color: #FA7268;');

@@ -25,7 +25,7 @@ describe('NavbarBrand', () => {
   test('render as a link when href is set', () => {
     const href = '/test-href';
     const {
-      container: {firstChild: navbarBrand}
+      container: {firstChild: navbarBrand},
     } = render(<NavbarBrand href={href} />);
     expect(navbarBrand.getAttribute('href')).toBe(href);
   });

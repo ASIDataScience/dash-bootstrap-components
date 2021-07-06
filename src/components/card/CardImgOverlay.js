@@ -7,13 +7,14 @@ import {CardImgOverlay as RSCardImgOverlay} from 'reactstrap';
  * Use CardImgOverlay to turn an image into the background of your card and add
  * text on top of it.
  */
-const CardImgOverlay = props => {
-  const {children, loading_state, ...otherProps} = props;
+const CardImgOverlay = (props) => {
+  const {children, loading_state, className, class_name, ...otherProps} = props;
   return (
     <RSCardImgOverlay
       data-dash-is-loading={
         (loading_state && loading_state.is_loading) || undefined
       }
+      className={class_name || className}
       {...omit(['setProps'], otherProps)}
     >
       {children}
@@ -78,8 +79,8 @@ CardImgOverlay.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
-  })
+    component_name: PropTypes.string,
+  }),
 };
 
 export default CardImgOverlay;

@@ -12,7 +12,7 @@ import NavbarToggler from './NavbarToggler';
  * A self-contained navbar ready for use. If you need more customisability try
  * `Navbar` instead.
  */
-const NavbarSimple = props => {
+const NavbarSimple = (props) => {
   const {
     children,
     brand,
@@ -24,6 +24,8 @@ const NavbarSimple = props => {
     color,
     style,
     loading_state,
+    className,
+    class_name,
     ...otherProps
   } = props;
   const isBootstrapColor = bootstrapColors.has(color);
@@ -36,6 +38,7 @@ const NavbarSimple = props => {
     <RSNavbar
       color={isBootstrapColor ? color : null}
       style={!isBootstrapColor ? {backgroundColor: color, ...style} : style}
+      className={class_name || className}
       {...omit(['setProps'], otherProps)}
       data-dash-is-loading={
         (loading_state && loading_state.is_loading) || undefined
@@ -202,8 +205,8 @@ NavbarSimple.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
-  })
+    component_name: PropTypes.string,
+  }),
 };
 
 export default NavbarSimple;

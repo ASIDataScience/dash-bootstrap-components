@@ -9,12 +9,13 @@ import Link from '../../private/Link';
  * Add a link to a `Nav`. Can be used as a child of `NavItem` or of `Nav`
  * directly.
  */
-const NavLink = props => {
+const NavLink = (props) => {
   const [linkActive, setLinkActive] = useState(false);
   const {
     children,
     disabled,
     className,
+    class_name,
     active,
     loading_state,
     setProps,
@@ -23,7 +24,7 @@ const NavLink = props => {
     ...otherProps
   } = props;
 
-  const pathnameToActive = pathname => {
+  const pathnameToActive = (pathname) => {
     setLinkActive(
       active === true ||
         (active === 'exact' && pathname === href) ||
@@ -45,14 +46,14 @@ const NavLink = props => {
     if (!disabled && setProps) {
       setProps({
         n_clicks: n_clicks + 1,
-        n_clicks_timestamp: Date.now()
+        n_clicks_timestamp: Date.now(),
       });
     }
   };
 
-  const classes = classNames(className, 'nav-link', {
+  const classes = classNames(class_name || className, 'nav-link', {
     active: linkActive,
-    disabled
+    disabled,
   });
 
   return (
@@ -75,7 +76,7 @@ NavLink.defaultProps = {
   active: false,
   disabled: false,
   n_clicks: 0,
-  n_clicks_timestamp: -1
+  n_clicks_timestamp: -1,
 };
 
 NavLink.propTypes = {
@@ -135,7 +136,7 @@ NavLink.propTypes = {
    */
   active: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.oneOf(['partial', 'exact'])
+    PropTypes.oneOf(['partial', 'exact']),
   ]),
 
   /**
@@ -181,13 +182,13 @@ NavLink.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
+    component_name: PropTypes.string,
   }),
 
   /**
    * Target attribute to pass on to the link. Only applies to external links.
    */
-  target: PropTypes.string
+  target: PropTypes.string,
 };
 
 export default NavLink;

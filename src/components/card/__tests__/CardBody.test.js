@@ -14,4 +14,4 @@ describe('CardBody', () => {
 
     expect(cardBody.container).toHaveTextContent('Some card body content');
   });
-})
+});

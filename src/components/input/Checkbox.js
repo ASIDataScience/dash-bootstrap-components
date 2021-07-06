@@ -5,8 +5,16 @@ import {omit} from 'ramda';
 /**
  * Creates a single checkbox input. Use the `checked` prop in your callbacks.
  */
-const Checkbox = props => {
-  const {checked, loading_state, disabled, setProps, ...otherProps} = props;
+const Checkbox = (props) => {
+  const {
+    checked,
+    loading_state,
+    disabled,
+    setProps,
+    className,
+    class_name,
+    ...otherProps
+  } = props;
   const [checkedState, setCheckedState] = useState(checked || false);
 
   useEffect(() => {
@@ -19,6 +27,7 @@ const Checkbox = props => {
     <input
       type="checkbox"
       checked={checkedState}
+      className={class_name || className}
       {...omit(
         ['setProps', 'persistence', 'persistence_type', 'persisted_props'],
         otherProps
@@ -29,7 +38,7 @@ const Checkbox = props => {
           setCheckedState(!checkedState);
           if (setProps) {
             setProps({
-              checked: !checkedState
+              checked: !checkedState,
             });
           }
         }
@@ -43,7 +52,7 @@ const Checkbox = props => {
 
 Checkbox.defaultProps = {
   persisted_props: ['checked'],
-  persistence_type: 'local'
+  persistence_type: 'local',
 };
 
 Checkbox.propTypes = {
@@ -60,6 +69,13 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
 
   /**
+   * The class of the container (div)
+   */
+  class_name: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `class_name` instead.
+   *
    * The class of the container (div)
    */
   className: PropTypes.string,
@@ -96,7 +112,7 @@ Checkbox.propTypes = {
     /**
      * Holds the name of the component that is loading
      */
-    component_name: PropTypes.string
+    component_name: PropTypes.string,
   }),
 
   /**
@@ -110,7 +126,7 @@ Checkbox.propTypes = {
   persistence: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
 
   /**
@@ -136,7 +152,7 @@ Checkbox.propTypes = {
   /**
    * The name of the control, which is submitted with the form data.
    */
-  name: PropTypes.string
+  name: PropTypes.string,
 };
 
 export default Checkbox;

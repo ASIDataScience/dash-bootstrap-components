@@ -19,14 +19,14 @@ describe('NavLink', () => {
   test('passes href to the anchor', () => {
     const href = '/test-href';
     const {
-      container: {firstChild: navLink}
+      container: {firstChild: navLink},
     } = render(<NavLink href={href} />);
     expect(navLink.getAttribute('href')).toBe(href);
   });
 
   test('applies "active" class with "active" prop', () => {
     const {
-      container: {firstChild: navLink}
+      container: {firstChild: navLink},
     } = render(<NavLink active />);
 
     expect(navLink).toHaveClass('active');

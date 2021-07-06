@@ -52,21 +52,21 @@ describe('Spinner', () => {
   test('applies additional CSS classes when props are set', () => {
     // grow spinner
     const {
-      container: {firstChild: spinner}
+      container: {firstChild: spinner},
     } = render(<Spinner type="grow" />);
 
     expect(spinner).toHaveClass('spinner-grow');
 
     // spinner sizes
     const {
-      container: {firstChild: spinnerSm}
+      container: {firstChild: spinnerSm},
     } = render(<Spinner size="sm" />);
 
     expect(spinnerSm).toHaveClass('spinner-border-sm');
 
     // spinner styles
     const {
-      container: {firstChild: spinnerStyle}
+      container: {firstChild: spinnerStyle},
     } = render(<Spinner spinner_style={{width: '5rem', height: '5rem'}} />);
 
     expect(spinnerStyle).toHaveStyle({width: '5rem', height: '5rem'});
@@ -76,8 +76,8 @@ describe('Spinner', () => {
     // grow spinner
     const {
       container: {
-        firstChild: {lastChild: spinner}
-      }
+        firstChild: {lastChild: spinner},
+      },
     } = render(
       <Spinner type="grow" loading_state={{is_loading: true}}>
         <p>Child</p>
@@ -89,8 +89,8 @@ describe('Spinner', () => {
     // spinner sizes
     const {
       container: {
-        firstChild: {lastChild: spinnerSm}
-      }
+        firstChild: {lastChild: spinnerSm},
+      },
     } = render(
       <Spinner size="sm" loading_state={{is_loading: true}}>
         <p>Child</p>
@@ -102,8 +102,8 @@ describe('Spinner', () => {
     // spinner styles
     const {
       container: {
-        firstChild: {lastChild: spinnerStyle}
-      }
+        firstChild: {lastChild: spinnerStyle},
+      },
     } = render(
       <Spinner
         spinner_style={{width: '5rem', height: '5rem'}}
@@ -115,19 +115,19 @@ describe('Spinner', () => {
 
     expect(spinnerStyle.firstChild).toHaveStyle({
       width: '5rem',
-      height: '5rem'
+      height: '5rem',
     });
   });
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: spinnerPrimary}
+      container: {firstChild: spinnerPrimary},
     } = render(<Spinner color="primary" />);
     const {
-      container: {firstChild: spinnerSuccess}
+      container: {firstChild: spinnerSuccess},
     } = render(<Spinner color="success" />);
     const {
-      container: {firstChild: spinnerDark}
+      container: {firstChild: spinnerDark},
     } = render(<Spinner color="dark" />);
 
     expect(spinnerPrimary).toHaveClass('text-primary');

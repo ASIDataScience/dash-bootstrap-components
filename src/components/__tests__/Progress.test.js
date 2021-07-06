@@ -15,7 +15,7 @@ describe('Progress', () => {
   test('sets progress with the "value" prop', () => {
     const {
       container: {firstChild: progress},
-      rerender
+      rerender,
     } = render(<Progress value={50} />);
 
     expect(progress.firstChild).toHaveStyle({width: '50%'});
@@ -27,7 +27,7 @@ describe('Progress', () => {
 
   test('renders its content', () => {
     const {
-      container: {firstChild: progress}
+      container: {firstChild: progress},
     } = render(<Progress value={25}>25%</Progress>);
 
     expect(progress.firstChild).toHaveTextContent('25%');
@@ -35,13 +35,13 @@ describe('Progress', () => {
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: progressPrimary}
+      container: {firstChild: progressPrimary},
     } = render(<Progress color="primary" />);
     const {
-      container: {firstChild: progressSuccess}
+      container: {firstChild: progressSuccess},
     } = render(<Progress color="success" />);
     const {
-      container: {firstChild: progressDark}
+      container: {firstChild: progressDark},
     } = render(<Progress color="dark" />);
 
     expect(progressPrimary.firstChild).toHaveClass('bg-primary');
@@ -51,7 +51,7 @@ describe('Progress', () => {
 
   test('bars can be nested with "bar" prop', () => {
     const {
-      container: {firstChild: progress}
+      container: {firstChild: progress},
     } = render(
       <Progress multi>
         <Progress value={25} color="success" bar />
@@ -71,13 +71,13 @@ describe('Progress', () => {
   test('applies additional CSS classes when props are set', () => {
     // striped progress
     const {
-      container: {firstChild: progressStriped}
+      container: {firstChild: progressStriped},
     } = render(<Progress striped />);
 
     expect(progressStriped.firstChild).toHaveClass('progress-bar-striped');
 
     const {
-      container: {firstChild: progressAnimated}
+      container: {firstChild: progressAnimated},
     } = render(<Progress striped animated />);
 
     expect(progressAnimated.firstChild).toHaveClass('progress-bar-animated');
@@ -85,7 +85,7 @@ describe('Progress', () => {
 
   test('sets className and style on the progress container and the bar', () => {
     const {
-      container: {firstChild: progress}
+      container: {firstChild: progress},
     } = render(
       <Progress
         style={{height: '40px'}}

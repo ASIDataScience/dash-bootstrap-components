@@ -47,7 +47,8 @@ submenu_1 = [
             [
                 dbc.Col("Menu 1"),
                 dbc.Col(
-                    html.I(class_name="fas fa-chevron-right mr-3"), width="auto"
+                    html.I(class_name="fas fa-chevron-right mr-3"),
+                    width="auto",
                 ),
             ],
             class_name="my-1",
@@ -71,7 +72,8 @@ submenu_2 = [
             [
                 dbc.Col("Menu 2"),
                 dbc.Col(
-                    html.I(class_name="fas fa-chevron-right mr-3"), width="auto"
+                    html.I(class_name="fas fa-chevron-right mr-3"),
+                    width="auto",
                 ),
             ],
             class_name="my-1",

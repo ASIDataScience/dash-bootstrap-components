@@ -11,7 +11,7 @@ describe('Navbar', () => {
 
   test('renders its content', () => {
     const {
-      container: {firstChild: navbar}
+      container: {firstChild: navbar},
     } = render(<Navbar>Some navbar content</Navbar>);
     expect(navbar).toHaveTextContent('Some navbar content');
   });
@@ -19,10 +19,10 @@ describe('Navbar', () => {
   test('applies additional CSS classes when props are set', () => {
     // dark and light navbars
     const {
-      container: {firstChild: navbarDark}
+      container: {firstChild: navbarDark},
     } = render(<Navbar dark />);
     const {
-      container: {firstChild: navbarLight}
+      container: {firstChild: navbarLight},
     } = render(<Navbar light />);
 
     expect(navbarDark).toHaveClass('navbar-dark');
@@ -30,10 +30,10 @@ describe('Navbar', () => {
 
     // sticky navbars
     const {
-      container: {firstChild: navbarStickyTop}
+      container: {firstChild: navbarStickyTop},
     } = render(<Navbar sticky="top" />);
     const {
-      container: {firstChild: navbarStickyBottom}
+      container: {firstChild: navbarStickyBottom},
     } = render(<Navbar sticky="bottom" />);
 
     expect(navbarStickyTop).toHaveClass('sticky-top');
@@ -41,10 +41,10 @@ describe('Navbar', () => {
 
     // fixed navbars
     const {
-      container: {firstChild: navbarFixedTop}
+      container: {firstChild: navbarFixedTop},
     } = render(<Navbar fixed="top" />);
     const {
-      container: {firstChild: navbarFixedBottom}
+      container: {firstChild: navbarFixedBottom},
     } = render(<Navbar fixed="bottom" />);
 
     expect(navbarFixedTop).toHaveClass('fixed-top');
@@ -52,38 +52,38 @@ describe('Navbar', () => {
 
     // navbar expand
     const {
-      container: {firstChild: navbarExpandSm}
+      container: {firstChild: navbarExpandSm},
     } = render(<Navbar expand="sm" />);
     expect(navbarExpandSm).toHaveClass('navbar-expand-sm');
     const {
-      container: {firstChild: navbarExpandMd}
+      container: {firstChild: navbarExpandMd},
     } = render(<Navbar expand="md" />);
     expect(navbarExpandMd).toHaveClass('navbar-expand-md');
     const {
-      container: {firstChild: navbarExpandLg}
+      container: {firstChild: navbarExpandLg},
     } = render(<Navbar expand="lg" />);
     expect(navbarExpandLg).toHaveClass('navbar-expand-lg');
     const {
-      container: {firstChild: navbarExpandXl}
+      container: {firstChild: navbarExpandXl},
     } = render(<Navbar expand="xl" />);
     expect(navbarExpandXl).toHaveClass('navbar-expand-xl');
   });
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: navbarPrimary}
+      container: {firstChild: navbarPrimary},
     } = render(<Navbar color="primary" />);
     const {
-      container: {firstChild: navbarSuccess}
+      container: {firstChild: navbarSuccess},
     } = render(<Navbar color="success" />);
     const {
-      container: {firstChild: navbarDark}
+      container: {firstChild: navbarDark},
     } = render(<Navbar color="dark" />);
     const {
-      container: {firstChild: navbarCss}
+      container: {firstChild: navbarCss},
     } = render(<Navbar color="chocolate" />);
     const {
-      container: {firstChild: navbarCustom}
+      container: {firstChild: navbarCustom},
     } = render(<Navbar color="#123456" />);
 
     expect(navbarPrimary).toHaveClass('bg-primary');

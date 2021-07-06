@@ -13,7 +13,10 @@ modal = html.Div(
                 dbc.ModalBody("A small modal."),
                 dbc.ModalFooter(
                     dbc.Button(
-                        "Close", id="close-sm", class_name="ml-auto", n_clicks=0
+                        "Close",
+                        id="close-sm",
+                        class_name="ml-auto",
+                        n_clicks=0,
                     )
                 ),
             ],
@@ -27,7 +30,10 @@ modal = html.Div(
                 dbc.ModalBody("A large modal."),
                 dbc.ModalFooter(
                     dbc.Button(
-                        "Close", id="close-lg", class_name="ml-auto", n_clicks=0
+                        "Close",
+                        id="close-lg",
+                        class_name="ml-auto",
+                        n_clicks=0,
                     )
                 ),
             ],
@@ -41,7 +47,10 @@ modal = html.Div(
                 dbc.ModalBody("An extra large modal."),
                 dbc.ModalFooter(
                     dbc.Button(
-                        "Close", id="close-xl", class_name="ml-auto", n_clicks=0
+                        "Close",
+                        id="close-xl",
+                        class_name="ml-auto",
+                        n_clicks=0,
                     )
                 ),
             ],

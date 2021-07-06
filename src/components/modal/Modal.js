@@ -6,8 +6,25 @@ import {Modal as RSModal} from 'reactstrap';
  * Create a toggleable dialog using the Modal component. Toggle the visibility
  * with the `is_open` prop.
  */
-const Modal = props => {
-  const {children, is_open, setProps, ...otherProps} = props;
+const Modal = (props) => {
+  const {
+    children,
+    is_open,
+    setProps,
+    className,
+    class_name,
+    autoFocus,
+    autofocus,
+    labelledBy,
+    labelledby,
+    modalClassName,
+    modal_class_name,
+    contentClassName,
+    content_class_name,
+    backdropClassName,
+    backdrop_class_name,
+    ...otherProps
+  } = props;
 
   const toggle = () => {
     if (setProps) {
@@ -16,7 +33,16 @@ const Modal = props => {
   };
 
   return (
-    <RSModal isOpen={is_open} toggle={toggle} {...otherProps}>
+    <RSModal
+      className={class_name || className}
+      modalClassName={modal_class_name || modalClassName}
+      backdropClassName={backdrop_class_name || backdropClassName}
+      autoFocus={autofocus || autoFocus}
+      labelledBy={labelledby || labelledBy}
+      isOpen={is_open}
+      toggle={toggle}
+      {...otherProps}
+    >
       {children}
     </RSModal>
   );
@@ -75,6 +101,13 @@ Modal.propTypes = {
   /**
    * 	Puts the focus on the modal when initialized.
    */
+  autofocus: PropTypes.bool,
+
+  /**
+   * **DEPRECATED** Use `autofocus` instead
+   *
+   * 	Puts the focus on the modal when initialized.
+   */
   autoFocus: PropTypes.bool,
 
   /**
@@ -89,6 +122,13 @@ Modal.propTypes = {
   role: PropTypes.string,
 
   /**
+   * The ARIA labelledby attribute
+   */
+  labelledby: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `labelledby` instead
+   *
    * The ARIA labelledby attribute
    */
   labelledBy: PropTypes.string,
@@ -107,14 +147,35 @@ Modal.propTypes = {
   /**
    * CSS class to apply to the modal.
    */
+  modal_class_name: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `modal_class_name` instead
+   *
+   * CSS class to apply to the modal.
+   */
   modalClassName: PropTypes.string,
 
   /**
    * CSS class to apply to the backdrop.
    */
+  backdrop_class_name: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `backdrop_class_name` instead
+   *
+   * CSS class to apply to the backdrop.
+   */
   backdropClassName: PropTypes.string,
 
   /**
+   * CSS class to apply to the modal content.
+   */
+  content_class_name: PropTypes.string,
+
+  /**
+   * **DEPRECATED** Use `content_class_name` instead
+   *
    * CSS class to apply to the modal content.
    */
   contentClassName: PropTypes.string,
@@ -127,7 +188,7 @@ Modal.propTypes = {
   /**
    * Set the z-index of the modal. Default 1050.
    */
-  zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default Modal;

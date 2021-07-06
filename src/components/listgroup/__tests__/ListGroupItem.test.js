@@ -24,13 +24,13 @@ describe('ListGroupItem', () => {
 
   test('applies contextual colors with "color" prop', () => {
     const {
-      container: {firstChild: listGroupItemPrimary}
+      container: {firstChild: listGroupItemPrimary},
     } = render(<ListGroupItem color="primary" />);
     const {
-      container: {firstChild: listGroupItemSuccess}
+      container: {firstChild: listGroupItemSuccess},
     } = render(<ListGroupItem color="success" />);
     const {
-      container: {firstChild: listGroupItemDark}
+      container: {firstChild: listGroupItemDark},
     } = render(<ListGroupItem color="dark" />);
 
     expect(listGroupItemPrimary).toHaveClass('list-group-item-primary');

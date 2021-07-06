@@ -18,28 +18,28 @@ describe('Row', () => {
   test('applies additional CSS classes when props are set', () => {
     // no gutters
     const {
-      container: {firstChild: rowNoGutters}
+      container: {firstChild: rowNoGutters},
     } = render(<Row no_gutters />);
 
     expect(rowNoGutters).toHaveClass('no-gutters');
 
     // row align
     const {
-      container: {firstChild: rowAlign}
+      container: {firstChild: rowAlign},
     } = render(<Row align="center" />);
 
     expect(rowAlign).toHaveClass('align-items-center');
 
     // row justify
     const {
-      container: {firstChild: rowJustify}
+      container: {firstChild: rowJustify},
     } = render(<Row justify="between" />);
 
     expect(rowJustify).toHaveClass('justify-content-between');
 
     // row form
     const {
-      container: {firstChild: rowForm}
+      container: {firstChild: rowForm},
     } = render(<Row form />);
 
     expect(rowForm).toHaveClass('form-row');
