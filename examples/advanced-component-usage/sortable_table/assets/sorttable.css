@@ -1,0 +1,10 @@
+/* CSS to enable sorting in both direction in sorttable.js */
+
+table.sortable th::after, th.sorttable_sorted::after, th.sorttable_sorted_reverse::after {
+  content: " ";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+#sorttable_sortfwdind, #sorttable_sortrevind { display: none; }
